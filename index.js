@@ -23,6 +23,10 @@ const db = getFirestore();
 const docRef = db.collection('orders');
 const mealsRef = db.collection('meals');
 
+app.get('/', (req, res) => {
+  res.sendStatus(200)
+})
+
 app.get('/meals', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*')
   let meals = []
