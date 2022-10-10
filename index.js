@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.get('/meals', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*')
   let meals = []
-    await db.collection('meals').get().then(snapshot => {
+    await db.collection('meals').orderBy("type", "desc").get().then(snapshot => {
         snapshot.forEach((doc) => {
           meals.push(doc.data())
         });
